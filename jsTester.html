@@ -2,37 +2,74 @@
 <head>
 <script language = "JavaScript">
 
-var number = 3; // global variable exists while the page is loaded
-// myList is a list of variables. "array".
-    
-    
+var number = 3; //global variable exists while the page is loaded
+ // myList is a list of variables. "array"
+  
     
 function tester()
 {
     
-var myList = [  "Anne", "Bob", "Cathy", "Doug" ]; 
-var text = ""; 
-var i; 
-    for (i=0; i < myList.length; i++) { 
-     text += myList(i) + "<br>"; 
+var myList = [ "Anne", "Bob", "Cathy", "Doug"]; 
+var text = "";  
+var i;
+  for (i=0; i < myList.length; i++) {
+        text += myList[i] + "<br>";
+  
+  alert(myList[i]);
+ }
 
-alert(myList[i]);
-    }
-        
-            
+
+                  
 }
+
+/* 
+    // var answer= confirm("Do you want to quit");// Creates a new variable and stores users resoponse
     
-    </script> 
-    </head>
-    <body>
-    <center>
+     var answer= prompt("What is your name?");// Creates a new variable and stores users resoponse. 
+     // "Text" == string literal 
+    alert("Welcome to my Website, " + answer +". Hope you like it. "); //semi colon indicates end of a line
+    // = is the assignment operater -- assigns what's on the right to what's on the left
+    
+    number= number -1;
+    if(number == 0)// test equality (does right EQUAL the left side???)
+    {
+      alert("Blast off!");  
+      number= 10;  
+    }
+    else // if the condition above is NOT met
+    
+    {    
+    alert(number);
+    }
+    
+*/
+      
+    // Display an element of myList when button is clicked. 
+    // After the last element is displayed, the program will reset. 
+     alert(myList[0]);// access the element at position 1 of myList (2nd element)
+     alert(myList[1]);// access the element at position 1 of myList (2nd element)
+    alert(myList[2]);// access the element at position 1 of myList (2nd element)
+    alert(myList[3]);// access the element at position 1 of myList (2nd element)
+   
+    /* var i;
+    for (i=0; i < myList.length; i++) {
+        test += myList[i] + "<br>";
+        */
+        
+</script>
+
+</head>
+<body>
+<center> 
 <h1> JavaScript Tester </h1>
-    
+
 <br/>
-<br/> 
-    
-<input type="button" value="Click me" onClick="tester()">
-    
-    </center>
-    </body>
-    </html>
+<br/>
+
+<input type="button" value="Click Me" onClick="tester()">
+ 
+ <h3><a href="index.html">Click here to return to homepage</a></h3>
+
+</center>
+</body>
+</html>
