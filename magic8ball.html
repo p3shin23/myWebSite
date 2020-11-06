@@ -1,0 +1,63 @@
+<html>
+<head>
+<body bgcolor="lightgray">
+<font color="purple">
+<script languague = "JavaScript">
+var answers = ["Yes", "No", "Maybe", "Ask again later", "Not at all", "The anwer is unclear", "Ah indeed", "Barely but yes", "Of course", "Better not to tell you now"];
+function random()
+{
+    var rand = -1;
+    var solution = document.getElementById("sam");
+    var userQ = document.getElementById("question");
+//return a random decimal between 1 (exclusive) and 0 (incluive)
+   
+    // create random number between 0-5
+   
+    // mutiply Math.random() by the number of OPTIONS
+    rand = Math.random() * answers.length; // 0 - 5
+    // rand = rand + 1; // 1-10
+    rand = Math.floor(rand);
+    // alert(answer[rand]);
+   
+    // alert(Q.value.length);
+   
+    if (userQ.value.length == 0) {
+        solution.value = ("Please ask question first");
+    }
+    else {
+        solution.value = answers[rand];
+        if (rand==1) {
+         document.getElementById("myAudio").play();
+       }
+   }
+}
+function reset()
+{
+    document.getElementById("sam").value = "";
+}
+</script>
+</head>
+   
+   
+   
+<body
+    background="images/swirl.gif" >
+<center>
+<h1>Magic 8 Ball</h1>
+</br>
+The Magic 8-Ball is a plastic sphere, made to look like an eight-ball, that is used for fortune-telling or seeking advice. It was invented in 1950 by Albert C. Carter and Abe Bookman and is currently manufactured by Mattel.
+</br>
+<img src="images/glassball.jpeg" width="600"/>
+</br>
+</br>
+<input id="question" type = "text" size= "80" onfocusin = "reset()" />
+</br>
+<input type="button" value="Click here" onClick="random()"/>
+</br>
+<input id="sam" type = "text" size= "80" readonly = true />
+</br>
+<audio id="myAudio" src = "sounds/applause.mp3" > </audio>
+</center>
+<p> <center> click here to <a href="index.html"> return to my homepage.</center> </a> </p>
+</body>
+</html>
