@@ -2,93 +2,146 @@
 <head>
 <script language="javaScript">
 var number = 0;
-var autoClicked = false
-function addOne()
-{
-	// Write code that increments the number var by one. And alert it. 
-    number = number + 1;// number++ also increments a variable by 1.  
-    
-    // Test if number equals 16, and if so, reset to zero.
-    
-    if(number > 16) 
-   {
-       number = 0; 
-   }
-    
-    onesPlace(); 
-    twoPlace(); 
-    // Replace alert and display the number variable in the text box on this page. 
-    
-   document.getElementById ("count").value = number
-}
-    
+var autoClicked = false//stores the run button then clicked yet initialized it as false
 
-function onesPlace() 
-{
-    
-    // Write an if statement that tests if number is odd. If so turn the LED on. 
-    // if the if-statement is false, turn the LED off. 
-    if (number % 2 == 1) // number divided by 2, and the remainder is 1
+function addOne()
     {
-        document.getElementById ("ones").src = "images/ledON.png"; 
+    number = number + 1;// number++ also increments a variable by 1.  
+        
+        // Test if number equals 16, and if so, reset to zero.
+   
+    if(number == 16)
+        {
+        number = 0;
+        }
+   
+    flipLEDs();
+       
+        if (autoClicked==true)
+        {
+        var timer=setTimeout("addOne()",1000); //() are the parameters second one is the amount of time in milliseconds
+        }
+   
+    document.getElementById ("count").value = number
+       
     }
+   
+function auto() //switches the run button
+    {
+    if( autoClicked==false)// true when autoclciked when autoClick is false
+        {
+            autoClicked=true;
+           document.getElementById("runStop").value="Pause"; //got properties of that element
+            addOne();
+        }
     else
     {
-        document.getElementById ("ones").src = "images/ledOFF.png"; 
+    autoClicked=false;
+         document.getElementById("runStop").value="Run"; //got properties of that element
     }
 }
-    
    
-function twoPlace()
-{
-    // add an if else statement that tests when number mod ??? is ???
-    
-   document.getElementById ("twos").src = "images/ledON.png";  
-}
-    
+function flipLEDs()//flow of control, where is the program in that sequence
+    {
+    onesPlace();
+    twosPlace();
+    foursPlace();
+    eighthsPlace();
+    }
     
 
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        
+function onesPlace()
+    {  
+    if(number % 2 == 1)
+        {
+        document.getElementById("ones").src= "images/ledON.png"; //switch the images
+        }
+       
+    else// in all other cases
+        {
+        document.getElementById("ones").src="images/ledOFF.png";
+        }
+    }    
+   
+
+   
+function twosPlace ()
+    {
+    if(number % 4 < 2)// number is divided by 2, remandier is 1
+        {
+        document.getElementById("twos").src= "images/ledON.png";
+        }
+    else
+        {
+        document.getElementById("twos").src= "images/ledOFF.png";
+        }
+       
+     }
+   
+function foursPlace ()
+    {
+    if(number % 8 < 4)// number is divided by 2, remandier is 1
+        {
+        document.getElementById("fours").src= "images/ledON.png";
+        }
+    else
+        {
+        document.getElementById("fours").src= "images/ledOFF.png";
+        }
+       
+}
+
+function eighthsPlace ()
+    {
+    if(number % 10 < 5)// number is divided by 2, remandier is 1
+        {
+        document.getElementById("eighths").src= "images/ledON.png";
+        }
+    else
+        {
+document.getElementById ("eighths").src = "images/ledOFF.png";
+        }
+       
+     }
+   
+   
 </script>
 <head>
 <body>
 <center>
 <h1> Binary Clock </h1>
-    Click here to <a href="index.html"> return to my home page. </a><br/> 
+    Click here to <a href="index.html"> return to my home page. </a><br/>
 
 <input type = "button" value = "Add One" onclick="addOne()"/>
+   
 <input id="runStop" type = "button" value = "Run" onclick="auto()"/><br/><br/>
+   
 <input id="count" type = "text" size ="20" style="text-align:center">
 
 
 <div id="first" style="position:absolute; top:150; left: 600">
 2^0<br/>
+   
 <img id="ones" src="images/ledOFF.png" width="50"/>
 </div>
 
 <div id="second" style="position:absolute; top:150; left: 500">
 2^1<br/>
+   
 <img id="twos" src="images/ledOFF.png" width="50"/>
 </div>
 
 <div id="third" style="position:absolute; top:150; left: 400">
 2^2<br/>
+   
 <img id="fours" src="images/ledOFF.png" width="50"/>
 </div>
 
 
 <div id="fourth" style="position:absolute; top:150; left: 300">
 2^3<br/>
-<img id="eights" src="images/ledOFF.png" width="50"/>
+<img id="eighths" src="images/ledOFF.png" width="50"/>
 </div>
 
 
