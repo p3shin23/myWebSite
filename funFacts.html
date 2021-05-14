@@ -1,0 +1,111 @@
+<html> 
+<head> 
+<script language="JavaScript">
+
+/*************** Algorithm ******************
+1. Write down an array holding ten questions and answers 
+2. Display the first question 
+3. Categorize the users answers 
+4. Determine which question is being answered
+5. Find the matching answer
+6. Test if the users answer matches the correct one 
+7. If the answer is correct, add how many points to the score 
+8. Reset the answer box and fix the score 
+9. Repeat the process and keep continuing the score 
+10. After all questions are completed, reveal the final score 
+
+*/
+
+
+var group = ["-- Choose a BTS Member --", "Kim Seokjin (Jin)", "Min Yoongi (Suga)", "Jung Hoseok (J-Hope)", "Kim Namjoon (RM)", "Park Jimin (Jimin)", "Kim Taehyung (V)", "Jeon Jungkook (Jungkook)", "Bang Si-hyuk ('Hitman' Bang PD)"];
+
+var facts = ["-- No BTS member selected --", "Is WWH World Wide Handsome and is the main visual and a part of the vocal line.", "Is the lead rapper and loves taking photos.", "Is one of the main dancers and is the sunshine and hope of the group.", "Is the leader of the group and one of the main rappers and songwriters of the group as well.", "One of the main dancers and lead vocalists. He is the shortest, but has the most powerful stage presence.", "Is one of the vocalists and has GREAT fashion sense. He is also very musically gifted with the sax and piano.", "Is one of the main vocalists and dancers; he is known as the Golden maknae (youngest) of the group.", "He is the CEO of BigHit Entertainment and helps with writing the lyrics of BTS's songs."];
+
+function loadData()
+{
+	var sum = 0;
+	for(var i = 0; i<group.length; i++) 
+    {
+        var daList = document.getElementById("members"); 
+  		var option = document.createElement("option");
+  		option.text = group[i];
+  		daList.add(option);
+    }
+}
+
+// This function identifies which element from the drop down has been selected. It calls the 
+// getIndex function to acquire what the index of the selected item. Then it displays the 
+// corresponding element in the facts list. (This is diplayed in the textbox on the web page.)
+function start()
+{
+	// Write code that will store the selection object ("members") in a variable
+    // called selection.
+    var selection = document.getElementById("members"); 
+    
+    // Write code that will store the index of the users selection in a variable. 
+    // caled daIndex
+    
+    alert(selection.value);
+   
+    var daIndex = getIndex(selection.value)
+    
+    // Write an if-statement that tests if dIndex is -1. If so, alert an error has occurred
+   //if daIndex is NOT 1, display the funFact
+    
+   
+   // alert (daIndex); 
+    
+   // Write code that displays the cooresponding element of facts in the "funFact"
+   // text box. 
+   document.getElementById("funFact").value = facts[daIndex]; 
+}
+    
+
+// This function searches the group array for the element passed as a parameter
+// and returns the index number for that element in the array.
+function getIndex(d) // var d = "c"; 
+{
+    var answer = -1; // Invalid index value. 
+    
+    // Write a for loop that inverses the entire group array once. 
+    for(var i = 0; i< group.length; i++) 
+    { 
+        // Write an if statement that tests if the element at i equals 
+        // the parameter passed in the getIndex function. 
+        
+        if( group[i] == d ) // d is ound at index i 
+        {
+            answer = i; 
+        } 
+    }
+        
+    return answer; 
+}
+
+
+
+</script>
+</head>
+<body onload="loadData()"> 
+<center>
+<h1>BTS Fun Facts</h1>   
+<body bgcolor="#b19cd9">
+<font color="white">
+<center> <img src="https://variety.com/wp-content/uploads/2020/07/do0q4202.jpg?w=681&h=383&crop=1.jpg" width="600"/></center>
+    
+<a href="index.html"> Click here</a> to return to my homepage. 
+
+<br/><br/>
+<table border = 3>
+	<tr>
+		<td>  	<select name="p1" id="members"></select>	</td>
+		<td>	<input id="funFact" type="text" size="40"/> </td>
+	</tr>
+</table>
+<br/><br/>
+<input type="button" value="click" onclick="start()"/>
+</center>
+
+
+</body>
+</html>
